@@ -5,11 +5,10 @@ class AuthenticateUserController {
     async handle(req: Request, res: Response){
         const { email, password}= req.body;
         const authenticateUserService = new AuthenticateUserService();
-        const token = authenticateUserService.execute({
+        const token = await authenticateUserService.execute({
             email,
             password
         });
-
         return res.json(token);
     }
 
