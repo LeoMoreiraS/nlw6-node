@@ -3,7 +3,9 @@ import "reflect-metadata";
 import "./database";
 import "express-async-errors";
 import { router } from "./routes";
- 
+import dotenv from "dotenv"
+
+dotenv.config();
 const port = 3000;
 const app = express();
 app.use(express.json());

@@ -12,7 +12,7 @@ function ensureAuthenticated(req:Request,res:Response,next:NextFunction){
     }
     const [,token] = authToken.split(" ");
     try { 
-        const {name,email,sub} = verify(token,"3213123712371273") as IUser;
+        const {name,email,sub} = verify(token,process.env.SECRET) as IUser;
         
         const user:IUser={
             name: name,
